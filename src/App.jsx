@@ -29,35 +29,21 @@ export default function App() {
     <div className='wrapper'>
       <Header />
       <main>
-        <ul>
           {/*------------Öğeleri aşağıda listeleyin-------------------------------------------------------*/}
 
-          <li className='article'>
-            <a href={currentArticles[0]?.link} target='_blank'>
-              {currentArticles[0]?.title}
+          <ul>
+            {currentArticles.map((item,index)=>(
+          <li  key={index}
+         className="article">
+          <a href={item?.link} target='_blank' rel='noopener noreferrer'>
+              {item?.title}
             </a>
           </li>
 
-          <li className='article'>
-            <a href={currentArticles[1]?.link} target='_blank'>
-              {currentArticles[1]?.title}
-            </a>
-          </li>
 
-          <li className='article'>
-            <a href={currentArticles[2]?.link} target='_blank'>
-              {currentArticles[2]?.title}
-            </a>
-          </li>
-
-          <li className='article'>
-            <a href={currentArticles[3]?.link} target='_blank'>
-              {currentArticles[3]?.title}
-            </a>
-          </li>
-
-          {/*------------Öğeleri yukarıda listeleyin-------------------------------------------------------*/}
-        </ul>
+))}
+</ul>
+         
         <Button
           numOfArticles={numOfArticles}
           setCurrentArticles={setCurrentArticles}
